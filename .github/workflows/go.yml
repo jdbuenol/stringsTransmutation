@@ -26,8 +26,8 @@ jobs:
 
     - name: Test
       run: |
-            sudo go test ./... -coverprofile coverage.out -covermode count
-            sudo go tool cover -func coverage.out
+            go test ./... -coverprofile coverage.out -covermode count
+            go tool cover -func coverage.out
 
     - name: Meets coverage
       env:
