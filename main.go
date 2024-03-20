@@ -7,7 +7,7 @@ import (
 )
 
 func Concat(s1 string, s2 string) string {
-	return s1 + " " + s2
+	return s1 + s2
 }
 
 func Reverse(s string) string {
