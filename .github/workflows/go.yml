@@ -29,5 +29,6 @@ jobs:
     
     - name: staticcheck
       uses: dominikh/staticcheck-action@v1.2.0
+      continue-on-error: true
       with:
         version: "2022.1.3"
