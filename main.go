@@ -23,7 +23,8 @@ func main() {
 	//initialises a router with the default functions.
 	router := gin.Default()
 
-	API_KEY := md5.Sum([]byte("password"))
+	API_KEY := "password"
+	SECRET_KEY := md5.Sum([]byte(API_KEY))
 
 	router.GET("/Concat/:str1/:str2", func(context *gin.Context) {
 		str1 := context.Param("str1")
@@ -39,7 +40,7 @@ func main() {
 	router.GET("/Secret/:password", func(context *gin.Context) {
 		password := context.Param("password")
 		hashed := md5.Sum([]byte(password))
-		if hashed == API_KEY {
+		if hashed == SECRET_KEY {
 			context.String(http.StatusOK, "contraseña correcta")
 		} else {
 			context.String(http.StatusForbidden, "contraseña errada")
